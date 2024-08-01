@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Number Extractor</title>
+</head>
+<body>
+    <h1>Elección aleatoria de número para rifa :-)</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <input type="submit" value="Upload">
+    </form>
+
+    {% if numbers %}
+        <h2>Números encontrados en la imágen:</h2>
+        <ul>
+            {% for number in numbers %}
+                <li>{{ number }}</li>
+            {% endfor %}
+        </ul>
+        <h2>Número seleccionado:</h2>
+        <p>{{ selected_number }}</p>
+    {% elif message %}
+        <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>
